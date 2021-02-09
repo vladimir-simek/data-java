@@ -29,7 +29,6 @@ public class Logic {
             BufferedWriter bs = new BufferedWriter(new FileWriter("data-export/nezname-spolecnosti.txt"));
             BufferedWriter bf = new BufferedWriter(new FileWriter("data-export/nezname-faktury.txt"));
             line = br.readLine();
-            int a  = 2;
 
             while (line != null) {
 
@@ -38,19 +37,9 @@ public class Logic {
                 String num = lineArguments[0];
                 int fakturaNum = Integer.parseInt(num);
 
-                int sadas = Integer.parseInt(lineArguments[0]);
+                int poradoveCisloFaktury = Integer.parseInt(lineArguments[0]);
 
-
-                if (a % 2 == 0) {
-                    asd = Integer.parseInt(lineArguments[0]);
-                }
-
-                a++;
-
-                if (sadas - 1 != asd) {
-                    bf.write(sadas-1 + ";");
-                    bf.newLine();
-                }
+                a.add(poradoveCisloFaktury);
 
                 lineArgumentsParsed[0] = lineArguments[0];
                 lineArgumentsParsed[2] = lineArguments[2];
@@ -92,5 +81,33 @@ public class Logic {
             e.printStackTrace();
         }
     }
+
+
+    public static void writeFaktury(ArrayList<Integer> a) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("data-export/nezname-faktury.txt"));
+
+            //for (int i = 0; i < a.size(); i++) {
+            //     bw.write(a.get(i) + ";");
+            //     bw.newLine();
+            // }
+
+            for (int i = 1; i < a.size(); i++) {
+                int previousNumber = a.get(i-1);
+                int currentNumber = a.get(i);
+
+                if (previousNumber != (currentNumber-1)){
+                    bw.write((currentNumber-1) +"");
+                    bw.newLine();
+                }
+            }
+
+            bw.close();
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
 
 }

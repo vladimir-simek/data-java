@@ -1,7 +1,7 @@
 package com.vladimirsimek.datajava;
 
 
-import static com.vladimirsimek.datajava.Logic.readAndWriteVF;
+import static com.vladimirsimek.datajava.Logic.*;
 
 public class Main {
 
@@ -13,6 +13,8 @@ public class Main {
         readAndWriteVF("data/VF_2018.dat", "data-export/VF_2018.csv");
         readAndWriteVF("data/VF_2019.dat", "data-export/VF_2019.csv");
         readAndWriteVF("data/VF_2020.dat", "data-export/VF_2020.csv");
+
+        writeFaktury(a);
 
     }
 }
