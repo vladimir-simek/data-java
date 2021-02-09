@@ -87,11 +87,6 @@ public class Logic {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("data-export/nezname-faktury.txt"));
 
-            //for (int i = 0; i < a.size(); i++) {
-            //     bw.write(a.get(i) + ";");
-            //     bw.newLine();
-            // }
-
             for (int i = 1; i < a.size(); i++) {
                 int previousNumber = a.get(i-1);
                 int currentNumber = a.get(i);
